@@ -1,0 +1,42 @@
+from graphviz import Digraph
+
+dot = Digraph(comment='Multi-Agent System')
+
+# Set global graph attributes
+dot.attr(size='8,5')
+dot.attr(rankdir='LR')
+
+# Add nodes for agents
+dot.node('A', 'Legal Job Researcher', shape='rect', style='filled', color='lightblue')
+dot.node('B', 'Personal Profiler', shape='rect', style='filled', color='lightblue')
+dot.node('C', 'Resume Strategist', shape='rect', style='filled', color='lightblue')
+dot.node('D', 'Interview Preparer', shape='rect', style='filled', color='lightblue')
+
+# Add nodes for tasks
+dot.node('T1', 'Extract Job Requirements', shape='ellipse')
+dot.node('T2', 'Compile Comprehensive Profile', shape='ellipse')
+dot.node('T3', 'Align Resume with Job Requirements', shape='ellipse')
+dot.node('T4', 'Develop Interview Materials', shape='ellipse')
+
+# Add edges between agents and tasks
+dot.edge('A', 'T1')
+dot.edge('B', 'T2')
+dot.edge('C', 'T3')
+dot.edge('D', 'T4')
+
+# Add dependencies between tasks
+dot.edge('T1', 'T3')
+dot.edge('T2', 'T3')
+dot.edge('T1', 'T4')
+dot.edge('T2', 'T4')
+dot.edge('T3', 'T4')
+
+# Add tools used by each agent
+dot.node('T', 'Tools', shape='parallelogram', style='filled', color='lightgreen')
+dot.edge('T', 'A', label='ScrapeWebsiteTool\nSerperDevTool', fontsize='10', color='darkgreen')
+dot.edge('T', 'B', label='ScrapeWebsiteTool\nSerperDevTool\nFileReadTool\nMDXSearchTool', fontsize='10', color='darkgreen')
+dot.edge('T', 'C', label='ScrapeWebsiteTool\nSerperDevTool\nFileReadTool\nMDXSearchTool', fontsize='10', color='darkgreen')
+dot.edge('T', 'D', label='ScrapeWebsiteTool\nSerperDevTool\nFileReadTool\nMDXSearchTool', fontsize='10', color='darkgreen')
+
+# Render the graph
+dot.render('multi_agent_system', format='png', view=True)
