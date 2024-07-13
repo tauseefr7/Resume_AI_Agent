@@ -28,7 +28,7 @@ Crew Composition: Includes all agents (Researcher, Profiler, Resume Strategist, 
 Task Execution: Agents collaborate on tasks sequentially, utilising outputs from previous tasks.
 
 The structure of the multi AI agent can be seen below:
-[multi_ai_agent_system visual.pdf](https://github.com/user-attachments/files/16203667/multi_ai_agent_system.visual.pdf)
+![multi_ai_agent_system visual](https://github.com/user-attachments/assets/656f3171-080d-49f9-8091-94332f48b12a)
 
 Acknowledgements: Big thanks to João Moura and team for creating a great Multi AI Agent framework. 
 
